@@ -31,7 +31,8 @@ export default class App {
                 return;
             }
             // add/edit
-            if (this.currentEditItem) {                this.itemRepository.updateItem(this.currentEditItem.id, itemText);
+            if (this.currentEditItem) {
+                this.itemRepository.updateItem(this.currentEditItem.id, itemText);
                 this.currentEditItem = null;
                 this.submitButton.innerText = 'Add';
                 this.renderItems();
@@ -69,6 +70,7 @@ export default class App {
         });
         this.renderItems();
     }
+
     renderItems() {
         // clear items HTML
         this.itemList.innerHTML = '';
