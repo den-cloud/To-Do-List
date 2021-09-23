@@ -5,14 +5,12 @@ import ItemRepository from './ItemRepository.js';
 export default class App {
     constructor() {
         this.currentEditItem = null;
-
         this.form = document.querySelector('#itemForm'); // select the form
         this.itemInput = document.querySelector('#itemInput'); // select the input box from the form
         this.itemList = document.querySelector('.item-list');
         this.inform = document.querySelector('.inform');
         this.clearButton = document.querySelector('#clear-list');
         this.submitButton = document.querySelector('#submitButton');
-
         this.itemRepository = new ItemRepository();
         this.itemSorter = new ItemSorter(this.itemList, this.itemRepository);
     }
@@ -21,10 +19,8 @@ export default class App {
         // event handler to add/edit a list item
         this.form.addEventListener('submit', (e) => {
             e.preventDefault();
-
             // collect input asnd clear textbox
             const itemText = this.itemInput.value;
-
             // validate
             if (!itemText || !itemText.trim()) {
                 this.inform.innerHTML = 'Enter a valid to do';
@@ -34,10 +30,8 @@ export default class App {
                 }, 3000);
                 return;
             }
-
             // add/edit
-            if (this.currentEditItem) {
-                this.itemRepository.updateItem(this.currentEditItem.id, itemText);
+            if (this.currentEditItem) {                this.itemRepository.updateItem(this.currentEditItem.id, itemText);
                 this.currentEditItem = null;
                 this.submitButton.innerText = 'Add';
                 this.renderItems();
@@ -45,26 +39,20 @@ export default class App {
                 this.itemRepository.addItem(itemText);
                 this.renderItems();
             }
-
-            // clear input text
-            this.itemInput.value = '';
+            // clear input text          this.itemInput.value = '';
         });
-
         // event handler to clear items
         this.clearButton.addEventListener('click', (e) => {
             e.preventDefault();
             this.itemRepository.removeCompletedItems();
             this.renderItems();
         });
-
         // event handler to complete, edit and delete
         this.itemList.addEventListener('click', (e) => {
             e.preventDefault();
-
             // decide which of our action button were clicked (if any)
             const targetClasses = e.target.classList;
             const getItemId = () => e.target.closest('div.item').id;
-
             // complete/edit/delete
             if (targetClasses.contains('complete-item')) {
                 this.itemRepository.completeItem(getItemId());
@@ -79,14 +67,11 @@ export default class App {
                 this.renderItems();
             }
         });
-
         this.renderItems();
     }
-
     renderItems() {
         // clear items HTML
         this.itemList.innerHTML = '';
-
         // generate items HTML
         this.itemRepository.getItems().forEach((todoItem) => {
             const completed = todoItem.completed ? 'completed' : '';
