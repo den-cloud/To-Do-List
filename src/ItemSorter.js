@@ -4,6 +4,7 @@ export default class ItemSorter {
         this.itemList = itemList;
         this.itemRepository = itemRepository;
     }
+
     itemDragStart(e) {
         if (!e.target.classList.contains('item')) {
             return;
@@ -11,6 +12,7 @@ export default class ItemSorter {
         this.itemBeingDragged = e.target;
         this.itemBeingDragged.classList.add('dragging');
     }
+
     itemDragOver(e) {
         e.preventDefault();
         if (!this.itemBeingDragged) {
@@ -33,6 +35,7 @@ export default class ItemSorter {
             this.itemBeingDragged.after(itemBeingDraggedOver);
         }
     }
+
     // eslint-disable-next-line no-unused-vars
     itemDragEnd(e) {
         if (!this.itemBeingDragged) {
