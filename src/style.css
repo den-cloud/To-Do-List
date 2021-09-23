@@ -1,3 +1,121 @@
-.hello {
-    color: red;
-  }
+body {
+  background: #f5f5f5;
+  color: #333;
+}
+
+.title {
+  color: #e6efef;
+}
+
+.heading {
+  color: #000;
+  font-size: 18px;
+  padding-top: 30px;
+  font-style: italic;
+}
+
+.hold {
+  border: 1px solid;
+  margin: 0 auto;
+  width: 60%;
+  align-items: center;
+  border-radius: 3px;
+  box-shadow: 5px 10px #333;
+}
+
+.btn-grey {
+  border-color: #000;
+  background: transparent;
+  color: #000;
+}
+
+.btn-grey:hover {
+  background: #000;
+  color: #333;
+}
+
+.form-control {
+  border-color: #000 !important;
+}
+
+.feedback {
+  display: none;
+  color: #000;
+}
+
+.item-name {
+  margin-left: 0;
+  align-content: flex-start;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  cursor: grab;
+  margin: 0;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.item h5 {
+  margin: 0;
+  width: 70%;
+  text-align: left;
+  text-decoration: none;
+}
+
+.item.dragging {
+  opacity: 0.5;
+  background-color: yellowgreen;
+}
+
+.item.dragover {
+  background-color: #11b5e4;
+}
+
+.dragging-pointer {
+  height: 1px;
+  border: 1px dashed gray;
+}
+
+.item-icon {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.complete-item {
+  color: #000;
+}
+
+.complete-item:hover {
+  color: #000;
+}
+
+.edit-item {
+  color: #11b5e4;
+}
+
+.edit-item:hover {
+  color: #11b5e4;
+}
+
+.delete-item {
+  color: #d62828;
+}
+
+.delete-item:hover {
+  color: #d62828;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.visibility {
+  opacity: 0.5;
+}
+
+.showItem {
+  display: block;
+}
