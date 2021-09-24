@@ -1,4 +1,4 @@
-import { saveToStorage, getTodos } from './update';
+import { saveToStorage } from './update';
 
 export const handleDragStart = (evt) => {
   evt.dataTransfer.setData('text/plain', evt.target.dataset.index);
@@ -19,9 +19,8 @@ export const cancelDefault = (e) => {
   return false;
 };
 
-export const handleDrop = (e) => {
+export const handleDrop = (e, todos) => {
   cancelDefault(e);
-  const todos = getTodos();
 
   // get new and old index
   const oldIndex = e.dataTransfer.getData('text/plain');
